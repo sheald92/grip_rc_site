@@ -1,25 +1,25 @@
 import React from "react";
 import "./App.css";
-import 'materialize-css';
-import Navbar from './components/Navbar';
+import "materialize-css";
+import { Routes, Route } from "react-router-dom";
+import AllCarsPage from "./pages/AllCars";
+import WishListPage from "./pages/WishList";
+import NewCarPage from "./pages/NewCar";
+import Layout from "./components/layout/Layout";
+
 function App() {
   return (
-    <Navbar/>
-  //   <div class="row">
-  //   <div class="col s12 m4">
-  //     <div class="card blue-grey darken-1">
-  //       <div class="card-content white-text">
-  //         <span class="card-title">Card Title</span>
-  //         <p>I am a very simple card. I am good at containing small bits of information.
-  //         I am convenient because I require little markup to use effectively.</p>
-  //       </div>
-  //       <div class="card-action">
-  //         <a href="#">This is a link</a>
-  //         <a href="#">This is a link</a>
-  //       </div>
-  //     </div>
-  //   </div>
-  // </div>
+    <Layout>
+      <div class="container">
+        {/* wrap routes in <switch> if more than one page loads  */}
+
+        <Routes>
+          <Route path="/" element={<AllCarsPage />} />
+          <Route path="/new-car" element={<NewCarPage />} />
+          <Route path="/wishlist" element={<WishListPage />} />
+        </Routes>
+      </div>
+    </Layout>
   );
 }
 
