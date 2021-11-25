@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import logo from "../../images/grip-rc-logo.png";
 import menuImage from "../../images/menu-background.png";
 import menuLogo from "../../images/menu-logo.png";
+import DarkMode from "../DarkMode";
+import "../../App.css";
 
 export class Navbar extends Component {
   componentDidMount() {
@@ -27,7 +29,7 @@ export class Navbar extends Component {
             </a>
             <div className="container">
               <Link to="/">
-                <img src={logo} height="75px" width="200px" />
+                <img src={logo} height="70px" width="200px"/>
               </Link>
               {/* <a href="#" class="brand-logo">
                 Logo
@@ -39,6 +41,10 @@ export class Navbar extends Component {
                 <li>
                   <Link to="/wishlist">Wish List</Link>
                 </li>
+                <li>
+                  <DarkMode />
+                </li>
+                
               </ul>
             </div>
           </div>
@@ -64,7 +70,7 @@ export class Navbar extends Component {
 
           <li class="center-align">
             <Link to="/">
-              <img src={menuLogo} height="75px" width="200px" />
+              <img src={menuLogo} height="50px" width="200px" />
             </Link>
           </li>
           <div class="divider"></div>
@@ -86,7 +92,7 @@ export class Navbar extends Component {
           </li>
           <li>
             <Link to="/wishlist">
-              <i class="material-icons">add</i>
+              <i class="material-icons">favorite</i>
               Wishlist
             </Link>
           </li>

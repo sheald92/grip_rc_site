@@ -28,19 +28,19 @@ function CarItem(props) {
             </div>
           </Card>
         </div>
-        <div class="col s3 m3">
+        <div class="col s3 m3 hide-on-med-and-down">
             <div class="collection">
               <a href="#!" class="collection-item">
-                Alvin
+                im in caritem.js for some reason
               </a>
               <a href="#!" class="collection-item">
-                Alvin
+                Items on wishlist
               </a>
               <a href="#!" class="collection-item">
-                Alvin
+                click add to wishlist
               </a>
               <a href="#!" class="collection-item">
-                Alvin
+                and it appears here
               </a>
             </div>
           </div>
