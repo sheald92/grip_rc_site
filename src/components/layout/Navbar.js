@@ -16,6 +16,8 @@ export class Navbar extends Component {
   }
 
   render() {
+    // const wishesCtx = useContext(wishesCtx);
+
     return (
       <div>
         <nav>
@@ -29,7 +31,7 @@ export class Navbar extends Component {
             </a>
             <div className="container">
               <Link to="/">
-                <img src={logo} height="70px" width="200px"/>
+                <img src={logo} height="70px" width="200px" alt="Logo"/>
               </Link>
               {/* <a href="#" class="brand-logo">
                 Logo
@@ -54,7 +56,7 @@ export class Navbar extends Component {
           <li>
             <div class="user-view center-align">
               <div class="background">
-                <img src={menuImage} />
+                <img src={menuImage} alt="Logo"/>
               </div>
               <a href="#user">
                 {/* <img class="circle" src="images/yuna.jpg" /> */}
@@ -70,7 +72,7 @@ export class Navbar extends Component {
 
           <li class="center-align">
             <Link to="/">
-              <img src={menuLogo} height="50px" width="200px" />
+              <img src={menuLogo} height="50px" width="200px" alt="Logo" />
             </Link>
           </li>
           <div class="divider"></div>
