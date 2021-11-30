@@ -23,7 +23,7 @@ function CarWishListItem(props) {
           <Link to="/wishlist"><i class="material-icons">toys</i></Link>
           </a>
           </div>
-      </li>
+      </li>     
     </ul>
   );
 }
