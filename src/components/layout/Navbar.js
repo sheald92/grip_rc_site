@@ -75,6 +75,7 @@ export class Navbar extends Component {
               <img src={menuLogo} height="50px" width="200px" alt="Logo" />
             </Link>
           </li>
+          <br/>
           <div class="divider"></div>
           <li>
             <Link to="/">
@@ -97,6 +98,11 @@ export class Navbar extends Component {
               <i class="material-icons">favorite</i>
               Wishlist
             </Link>
+          </li>
+          <div class="divider"></div>
+          <br/>
+          <li class="center-align">
+            <DarkMode />
           </li>
         </ul>
       </div>

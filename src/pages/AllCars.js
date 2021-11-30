@@ -1,64 +1,76 @@
+import Slider from "../components/ui/Slider";
+// import { Carousel, Slider } from "materialize-css";
 import React from "react";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from "react";
 import CarList from "../components/cars/CarList";
-// import slash from "../images/traxxas-slash.jpg";
-// const DUMMY_DATA = [
-//   {
-//     id: "c1",
-//     title: "Traxxas Slash 2wd",
-//     image:
-//       slash,
-//     drivetrain: "2wd, 2 Cell, Short Course Truck",
-//     description: "Chur braap braaaaaap",
-//   },
-//   {
-//     id: "c2",
-//     title: "Traxxas Slash 2wd",
-//     image:
-//         slash,
-//       //"https://commons.wikimedia.org/wiki/File:Traxxas_Slash_4x4_TSM_OBA_68086-24_Model.jpg",
-//     drivetrain: "2wd",
-//     description: "Chur braap braaaaaap",
-//   },
-// ];
+import CarWishList from "../components/cars/CarWishList";
+import WishlistContext from "../store/wishlist-context";
+import banner from '../images/banner.png';
+
 function AllCarsPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [loadedCars, setLoadedCars] = useState([]);
+  const wishesCtx = useContext(WishlistContext);
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(
-      'https://grip-rc-default-rtdb.firebaseio.com/cars.json'
-    ).then(response => {
-      return response.json();
-    }).then (data => {
-      const cars = [];
+    fetch("https://grip-rc-default-rtdb.firebaseio.com/cars.json")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        const cars = [];
 
-      for (const key in data) {
-        const car = {
-          id: key,
-          ...data[key]
-        };
-        cars.push(car);
-      }
+        for (const key in data) {
+          const car = {
+            id: key,
+            ...data[key],
+          };
+          cars.push(car);
+        }
 
-      setIsLoading(false);
-      setLoadedCars(cars);
-    });
+        setIsLoading(false);
+        setLoadedCars(cars);
+      });
   }, []);
-//external dependencies go in the array above, in this case, none
-//above function will run once when page is rendered
+  //external dependencies go in the array above, in this case, none
+  //above function will run once when page is rendered
 
-if (isLoading) {
-  return <section>
-    <p>Loading...</p>
-  </section>
-}
+  let content;
+  if (wishesCtx.totalWishes === 0) {
+    content = <p>Your Wishlist is empty </p>;
+  } else {
+    content = <CarWishList cars={wishesCtx.wishes} />;
+  }
 
-  return <section>
+  if (isLoading) {
+    return (
+      <section>
+        <p>Loading...</p>
+      </section>
+    );
+  }
+
+  return (
+    <section>
       {/* <h1> All Cars </h1> */}
-      <CarList cars={loadedCars}/>
-  </section>
+      <div class="row center-align hide-on-med-and-down">
+        <div class="col s12 m12 center-align">
+          {/* <Slider /> */}
+          <img src={banner} alt="banner image" width="1000px" height="300px"/>
+          </div>
+          </div>
+          <div class="row center-align">
+            <div class="col s9 m9 center-align">
+              <CarList cars={loadedCars} />
+            </div>
+            <div class="col s3 m3 center-align hide-on-med-and-down">
+              <h3>My Wishlist</h3>
+              {content}
+            </div>
+          </div>
+    </section>
+  );
 }
 
 export default AllCarsPage;

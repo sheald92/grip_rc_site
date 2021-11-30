@@ -19,7 +19,7 @@ function NewCarPage() {
     }
 
     return <section> 
-        <h1>New car Page</h1>
+        <h1>Add a car</h1>
         <NewCarForm onAddCar={addCarHandler}/>
     </section>;
 }
